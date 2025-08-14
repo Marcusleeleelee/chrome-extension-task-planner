@@ -24,6 +24,7 @@ body {
   min-height: 100%; /* Stretch to fill the available pane height */
 }
 
+/* Task Input Container */
 .task-input-container {
   display: flex;
   gap: 10px;
@@ -52,6 +53,7 @@ body {
   background-color: #3a006a;
 }
 
+/* Task List */
 .task-list {
   list-style: none;
   padding: 0;
@@ -59,32 +61,49 @@ body {
 }
 
 .task-item {
-  display: flex;
-  align-items: flex-start; /* Align textarea and buttons properly */
-  padding: 10px;
+  position: relative;
+  padding: 10px; /* Reduce padding around the content */
   border: 1px solid #ccc;
   border-radius: 5px;
   margin-bottom: 10px;
   background-color: #f9f9f9;
+  display: flex; /* Use flexbox to align textarea and actions */
+  justify-content: space-between;
+  align-items: flex-start; /* Prevent buttons from being squeezed to the bottom */
 }
 
-.task-text {
-  flex: 1;
-  font-size: 14px;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  outline: none;
-  box-sizing: border-box;
-  resize: none;
-  overflow-y: hidden;
-  min-height: 50px;
-  margin-right: 15px; /* Add space between textarea and buttons */
+/* Task Number */
+.task-number {
+  position: absolute;
+  top: -8px; /* Position slightly above the task container */
+  left: -8px; /* Position slightly to the left of the task container */
+  background-color: #ddd;
+  color: #333;
+  font-size: 10px; /* Make the text smaller */
+  font-weight: bold;
+  width: 25px; /* Adjust width for a smaller circle */
+  height: 25px; /* Match height to width for a perfect circle */
+  border-radius: 50%; /* Make it a perfect circle */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* Task Actions */
 .task-actions {
   display: flex;
-  gap: 10px; /* Spacing between buttons */
+  flex-direction: column; /* Stack buttons vertically */
+  gap: 5px; /* Add spacing between buttons */
+  margin-left: 10px; /* Add space between textarea and buttons */
+}
+
+.task-action {
+  padding: 5px 10px;
+  font-size: 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 button {
@@ -93,13 +112,6 @@ button {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-}
-
-.date-time {
-  font-size: 14px;
-  color: #555;
-  margin-left: 10px;
-  font-weight: bold;
 }
 
 button.done-task {
@@ -114,4 +126,27 @@ button.delete-task {
 
 button:hover {
   opacity: 0.9;
+}
+
+/* Task Text */
+.task-text {
+  flex: 1; /* Let textarea take up remaining space */
+  font-size: 14px;
+  padding: 5px; /* Reduce padding inside the textarea */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  box-sizing: border-box;
+  resize: none;
+  overflow-y: hidden;
+  min-height: 40px;
+  margin: 0; /* Remove extra margin around the textarea */
+}
+
+/* Date and Time */
+.date-time {
+  font-size: 14px;
+  color: #555;
+  margin-left: 10px;
+  font-weight: bold;
 }

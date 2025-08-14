@@ -50,6 +50,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const li = document.createElement("li");
     li.className = "task-item";
 
+    // Add task number
+    const taskNumber = document.createElement("div");
+    taskNumber.className = "task-number";
+    taskNumber.textContent = `#${index + 1}`; // Display task number (1-based index)
+
     // Create the textarea
     const textarea = document.createElement("textarea");
     textarea.value = task.text;
@@ -86,8 +91,9 @@ document.addEventListener("DOMContentLoaded", () => {
     actions.appendChild(doneButton);
     actions.appendChild(deleteButton);
 
-    li.appendChild(textarea);
-    li.appendChild(actions);
+    li.appendChild(taskNumber); // Add task number
+    li.appendChild(textarea); // Add task text
+    li.appendChild(actions); // Add action buttons
     taskList.appendChild(li);
   };
 
