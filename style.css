@@ -1,0 +1,115 @@
+/* General Reset */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+  color: #333;
+  width: 360px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#app {
+  width: 90%;
+  max-width: 320px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+
+.task-input-container {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+#new-task {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+#add-task {
+  padding: 10px 20px;
+  font-size: 14px;
+  background-color: #4b0082;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#add-task:hover {
+  background-color: #3a006a;
+}
+
+.task-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.task-item {
+  display: flex;
+  align-items: center; /* Center the textarea and buttons vertically */
+  padding: 10px; /* Add padding for better spacing */
+  border: 1px solid #ccc; /* Match the border with other elements */
+  border-radius: 5px; /* Rounded corners */
+  margin-bottom: 10px; /* Add spacing between tasks */
+  background-color: #f9f9f9; /* Light background for contrast */
+}
+
+.task-text {
+  flex: 1;
+  font-size: 14px;
+  padding: 8px; /* Add more padding for better readability */
+  border: 1px solid #ccc; /* Match the border with other elements */
+  border-radius: 5px; /* Rounded corners for consistency */
+  outline: none; /* Remove the default focus outline */
+  box-sizing: border-box; /* Ensure padding doesn't affect the width */
+  min-height: 50px; /* Increase the default height */
+  overflow-y: auto; /* Allow scrolling for overly long content */
+  resize: none; /* Prevent manual resizing */
+  margin-right: 10px; /* Add spacing between the textarea and buttons */
+  border-color: #4b0082; /* Highlight border on hover */
+}
+
+.task-actions {
+  display: flex; /* Change to flex for horizontal alignment */
+  flex-direction: row; /* Align buttons in a row */
+  gap: 5px; /* Add spacing between buttons */
+}
+
+button {
+  padding: 5px 10px;
+  font-size: 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button.done-task {
+  background-color: #4caf50;
+  color: white;
+}
+
+button.edit-task {
+  background-color: #ffa500;
+  color: white;
+}
+
+button.delete-task {
+  background-color: #f44336;
+  color: white;
+}
+
+button:hover {
+  opacity: 0.9;
+}
