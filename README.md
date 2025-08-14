@@ -8,6 +8,8 @@ A simple task planner Chrome extension to manage your tasks effectively.
 - Mark tasks as done or undone.
 - Displays date and time dynamically.
 
+![Demo Image](./Demo.png)
+
 ## Installation
 
 1. Clone this repository:
