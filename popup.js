@@ -20,26 +20,36 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   // Add task to DOM
+  // Function to auto-resize a textarea
+  const autoResize = (textarea) => {
+    textarea.style.height = "auto"; // Reset height to calculate new height
+    textarea.style.height = `${textarea.scrollHeight}px`; // Set height based on content
+  };
+
+  // Add task to DOM with auto-resizing functionality
   const addTaskToDOM = (task, index) => {
     const li = document.createElement("li");
     li.className = "task-item";
 
-    // Task text (textarea element)
+    // Create the textarea
     const textarea = document.createElement("textarea");
     textarea.value = task.text;
     textarea.className = "task-text";
-    textarea.style.textDecoration = task.done ? "line-through" : "none"; // Strike-through if done
+    textarea.style.textDecoration = task.done ? "line-through" : "none";
+
+    // Auto-resize on input and initialize height
+    textarea.addEventListener("input", () => autoResize(textarea));
+    autoResize(textarea); // Initialize height for preloaded content
 
     // Save changes on blur
     textarea.addEventListener("blur", () => {
       updateTask(index, textarea.value.trim());
     });
 
-    // Buttons container
+    // Create buttons
     const actions = document.createElement("div");
     actions.className = "task-actions";
 
-    // Done/Undo button
     const doneButton = document.createElement("button");
     doneButton.textContent = task.done ? "Undo" : "Done";
     doneButton.className = "task-action done-task";
@@ -47,7 +57,6 @@ document.addEventListener("DOMContentLoaded", () => {
       toggleTaskDone(index);
     });
 
-    // Edit button
     const editButton = document.createElement("button");
     editButton.textContent = "Edit";
     editButton.className = "task-action edit-task";
@@ -55,7 +64,6 @@ document.addEventListener("DOMContentLoaded", () => {
       textarea.focus();
     });
 
-    // Delete button
     const deleteButton = document.createElement("button");
     deleteButton.textContent = "Delete";
     deleteButton.className = "task-action delete-task";
@@ -67,8 +75,8 @@ document.addEventListener("DOMContentLoaded", () => {
     actions.appendChild(editButton);
     actions.appendChild(deleteButton);
 
-    li.appendChild(textarea); // Add task text
-    li.appendChild(actions); // Add action buttons
+    li.appendChild(textarea);
+    li.appendChild(actions);
     taskList.appendChild(li);
   };
 
