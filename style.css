@@ -95,13 +95,15 @@ button {
   cursor: pointer;
 }
 
-button.done-task {
-  background-color: #4caf50;
-  color: white;
+.date-time {
+  font-size: 14px;
+  color: #555;
+  margin-left: 10px;
+  font-weight: bold;
 }
 
-button.edit-task {
-  background-color: #ffa500;
+button.done-task {
+  background-color: #4caf50;
   color: white;
 }
 

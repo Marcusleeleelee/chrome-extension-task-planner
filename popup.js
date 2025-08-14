@@ -2,6 +2,26 @@ document.addEventListener("DOMContentLoaded", () => {
   const taskInput = document.getElementById("new-task");
   const addTaskButton = document.getElementById("add-task");
   const taskList = document.getElementById("task-list");
+  const dateTimeElement = document.getElementById("date-time");
+
+  // Function to update the date and time dynamically
+  const updateDateTime = () => {
+    const now = new Date();
+    const formattedDateTime = now.toLocaleString("en-US", {
+      weekday: "short",
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+    });
+    dateTimeElement.textContent = formattedDateTime;
+  };
+
+  // Update the date and time every second
+  setInterval(updateDateTime, 1000);
+  updateDateTime(); // Initialize the date and time on load
 
   // Load tasks from chrome.storage
   const loadTasks = () => {
@@ -19,7 +39,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
-  // Add task to DOM
   // Function to auto-resize a textarea
   const autoResize = (textarea) => {
     textarea.style.height = "auto"; // Reset height to calculate new height
@@ -51,17 +70,10 @@ document.addEventListener("DOMContentLoaded", () => {
     actions.className = "task-actions";
 
     const doneButton = document.createElement("button");
-    doneButton.textContent = task.done ? "Undo" : "Done";
+    doneButton.textContent = task.done ? "Undone" : "Done";
     doneButton.className = "task-action done-task";
     doneButton.addEventListener("click", () => {
       toggleTaskDone(index);
-    });
-
-    const editButton = document.createElement("button");
-    editButton.textContent = "Edit";
-    editButton.className = "task-action edit-task";
-    editButton.addEventListener("click", () => {
-      textarea.focus();
     });
 
     const deleteButton = document.createElement("button");
@@ -72,7 +84,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     actions.appendChild(doneButton);
-    actions.appendChild(editButton);
     actions.appendChild(deleteButton);
 
     li.appendChild(textarea);
