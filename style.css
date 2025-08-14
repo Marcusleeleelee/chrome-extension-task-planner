@@ -60,12 +60,12 @@ body {
 
 .task-item {
   display: flex;
-  align-items: center; /* Center the textarea and buttons vertically */
-  padding: 10px; /* Add padding for better spacing */
-  border: 1px solid #ccc; /* Match the border with other elements */
-  border-radius: 5px; /* Rounded corners */
-  margin-bottom: 10px; /* Add spacing between tasks */
-  background-color: #f9f9f9; /* Light background for contrast */
+  align-items: flex-start; /* Align textarea and buttons properly */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
 }
 
 .task-text {
@@ -76,15 +76,15 @@ body {
   border-radius: 5px;
   outline: none;
   box-sizing: border-box;
-  resize: none; /* Prevent manual resizing by the user */
-  overflow-y: hidden; /* Hide scrollbars, since height adjusts dynamically */
-  min-height: 50px; /* Set a comfortable default height */
+  resize: none;
+  overflow-y: hidden;
+  min-height: 50px;
+  margin-right: 15px; /* Add space between textarea and buttons */
 }
 
 .task-actions {
-  display: flex; /* Change to flex for horizontal alignment */
-  flex-direction: row; /* Align buttons in a row */
-  gap: 5px; /* Add spacing between buttons */
+  display: flex;
+  gap: 10px; /* Spacing between buttons */
 }
 
 button {
