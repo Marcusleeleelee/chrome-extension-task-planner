@@ -10,7 +10,9 @@ A simple task planner Chrome extension to manage your tasks effectively.
 
 ![Demo Image](./Demo.png)
 
-## Installation
+## **How to Install**
+
+### From Source:
 
 1. Clone this repository:
    ```bash
