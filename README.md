@@ -14,7 +14,7 @@ A simple task planner Chrome extension to manage your tasks effectively.
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/<your-username>/chrome-extension-task-planner.git
+   git clone https://github.com/Marcusleeleelee/chrome-extension-task-planner.git
    ```
 2. Open Chrome and navigate to chrome://extensions/.
 3. Enable Developer mode (top-right corner).
